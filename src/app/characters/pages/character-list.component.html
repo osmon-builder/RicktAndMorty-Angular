@@ -1,0 +1,76 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="row bg-header">
+        <div class="col-lg-2 col-md-2 col-xs-12 col-sm-2 d-flex a-item-center">
+            <img src="" style="height: 50px;">
+        </div>
+        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 d-flex a-item-center">
+            <input type="search" placeholder="Search..." id="Buscador" [(ngModel)]="filter" />
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+            <div class="character">
+                <h1>Charaters</h1>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mg-y-10"
+                    *ngFor="let characters of character| filter:filter |paginate: { itemsPerPage: 10, currentPage: page }">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                                <div class="images">
+                                    <img src="{{ characters.image }}">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                                <strong style="margin: 5px; font-size: x-large;">{{characters.name}}</strong>
+                                <div class="description">
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <p style="max-height: 80px ; overflow: hidden;">Status: {{characters.status}}
+                                        </p>
+                                        <p style="max-height: 80px ; overflow: hidden;">Specie: {{characters.species}}
+                                        </p>
+                                        <p style="max-height: 80px ; overflow: hidden;">{{characters.location.name
+                                            ?characters.location.name: 'Localizacion desconocida'}}</p>
+                                        <p style="max-height: 80px ; overflow: hidden;">{{getLastEpisode(characters.episode)}}</p>
+                                    </div>
+
+                                    
+                                        <button class="u-btn u-btn--view-more" (click)=" openDialog(characters)">
+                                            VIEW
+                                            MORE</button>
+
+                                            <button class="u-btn u-btn--view-more" 
+                                            (click)="setFav(characters)">Agregar a
+                                            favoritos</button>
+                                     
+                            
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 justify-content-center ">
+                    <pagination-controls previousLabel="" (pageBoundsCorrection)="page = $event" nextLabel=""
+                        (pageChange)="page = $event"></pagination-controls>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-2 bg-favorites">
+            <app-favourites [favCharacter]="favCharacter"></app-favourites>
+        </div>
+    </div>
+</div>

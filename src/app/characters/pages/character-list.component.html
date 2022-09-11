@@ -17,7 +17,7 @@
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mg-y-10"
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mg-y-20"
                     *ngFor="let characters of character| filter:filter |paginate: { itemsPerPage: 10, currentPage: page }">
                     <div class="card">
                         <div class="row">
@@ -27,7 +27,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                                <strong style="margin: 5px; font-size: x-large;">{{characters.name}}</strong>
+                                <strong style="margin: 2px; font-size: x-large;">{{characters.name}}</strong>
                                 <div class="description">
 
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -35,15 +35,16 @@
                                         </p>
                                         <p style="max-height: 80px ; overflow: hidden;">Specie: {{characters.species}}
                                         </p>
-                                        <p style="max-height: 80px ; overflow: hidden;">{{characters.location.name
-                                            ?characters.location.name: 'Localizacion desconocida'}}</p>
-                                        <p style="max-height: 80px ; overflow: hidden;">{{getLastEpisode(characters.episode)}}</p>
+                                        <p (click)="openDialogLocation(characters)" style="max-height: 80px ; overflow: hidden; color: blue; cursor: pointer;">Localizacion: {{characters.location.name
+                                            ?characters.location.name: 'Localizacion desconocida'}}
+                                        </p>
+                                        <p style="max-height: 80px ; overflow: hidden;">Ultimo episodio: {{characters.episode.slice(-1)}}</p>
                                     </div>
 
                                     
                                         <button class="u-btn u-btn--view-more" (click)=" openDialog(characters)">
-                                            VIEW
-                                            MORE</button>
+                                            Ver mas...
+                                            </button>
 
                                             <button class="u-btn u-btn--view-more" 
                                             (click)="setFav(characters)">Agregar a
@@ -51,10 +52,7 @@
                                      
                             
                                 </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="row">
-                                    </div>
-                                </div>
+            
                             </div>
 
                         </div>

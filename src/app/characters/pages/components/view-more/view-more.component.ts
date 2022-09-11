@@ -9,7 +9,7 @@ import { MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 export class ViewMoreComponent   {
 
-  
+  public page: number = 1; 
   character: any
 
   constructor(
@@ -20,5 +20,6 @@ export class ViewMoreComponent   {
     this.character = data.character;
     console.log(this.character)
   }
+
 
 }

@@ -1,0 +1,23 @@
+
+
+    <div class="modalc"  >
+
+        <div class="modalc__content">
+           <div class="modalc__close"></div>
+           <div class="row pdd-y-40">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <img width="100%" height="90%" [src]="character.image" [alt]="character.name">
+            </div>
+               <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                   <strong style="font-size:large; text-align: center;">{{location?.name}}</strong>
+                   <div class="modalc__contenedor">
+                       <p style=" text-align: justify; margin-top: 10px;">Dimension: {{location?.dimension}}</p>
+                   </div> <div class="modalc__contenedor">
+                    <p style=" text-align: justify; margin-top: 10px;">Numero de habitantes: {{location?.residents.length}}</p>
+                </div> <div class="modalc__contenedor">
+                    <p style=" text-align: justify; margin-top: 10px;">Tipo: {{location?.type}}</p>
+                </div>
+          
+               </div>
+           </div>
+       </div>

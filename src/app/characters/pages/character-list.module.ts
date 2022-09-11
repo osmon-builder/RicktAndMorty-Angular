@@ -7,11 +7,14 @@ import { CharacterServicesService } from '../services/character-services.service
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { ViewMoreComponent } from './view-more/view-more/view-more.component';
+
 import { FavouritesComponent } from './favourites/favourites.component';
 
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ViewMoreComponent } from './components/view-more/view-more.component';
+import { LocationComponent } from './components/location/location.component';
+
 
 const routes: Routes =[
   { path: "" , component: CharacterListComponent}
@@ -22,7 +25,8 @@ const routes: Routes =[
     CharacterListComponent,
     FilterPipe,
     ViewMoreComponent,
-    FavouritesComponent
+    FavouritesComponent,
+    LocationComponent
   ],
   imports: [
     CommonModule,

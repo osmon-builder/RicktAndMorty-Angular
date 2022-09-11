@@ -13,7 +13,12 @@ export class CharacterServicesService {
   ) { }
 
   getCharaters() : Observable<any>{
-    return this.http.get(`${environment.BaseUrl}`)
+    return this.http.get(`${environment.BaseUrl}character/`)
 }
+
+getLocation (id: string): Observable<any>{
+  return this.http.get(`${environment.BaseUrl}location/${id}`)
+}
+
 
 }
